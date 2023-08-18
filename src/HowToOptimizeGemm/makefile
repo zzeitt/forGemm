@@ -7,6 +7,8 @@ else ifeq ($(NEW), MMult2)
 	PREV := MMult1
 else ifeq ($(NEW), MMult_1x4_3)
 	PREV := MMult2
+else ifeq ($(NEW), MMult_4x4_9)
+	PREV := MMult_1x4_9
 else
 # stole from chatGPT, WATCH OUT SPACEs within expression!
 	NUM_NEW := $(shell echo $(NEW) | sed 's/.*_\([0-9]*\)/\1/')
