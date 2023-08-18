@@ -54,6 +54,6 @@ title_string = sprintf(
     version_old, version_prev, version_new);
 title( title_string );
 
-filename = sprintf( "compare_%s_%s", version_old, version_new );
+filename = sprintf( "compare_%s_%s", version_prev, version_new );
 
 print( filename, '-dpng' );
