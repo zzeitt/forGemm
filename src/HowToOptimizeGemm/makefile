@@ -5,12 +5,14 @@ ifeq ($(NEW), MMult1)
 	PREV := MMult0
 else ifeq ($(NEW), MMult2)
 	PREV := MMult1
+else ifeq ($(NEW), MMult_1x4_3)
+	PREV := MMult2
 else
 # stole from chatGPT, WATCH OUT SPACEs within expression!
 	NUM_NEW := $(shell echo $(NEW) | sed 's/.*_\([0-9]*\)/\1/')
 	GAP := 1
 	NUM_PREV := $(shell echo $$(($(NUM_NEW)-$(GAP))))
-	PREV := $(subst $(NUM_NEW),$(NUM_PREV),$(NEW))
+	PREV := $(subst _$(NUM_NEW),_$(NUM_PREV),$(NEW))
 endif
 
 # print PREV
