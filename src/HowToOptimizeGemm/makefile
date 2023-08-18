@@ -1,5 +1,21 @@
 OLD  := MMult0
 NEW  := MMult_1x4_5
+
+ifeq ($(NEW), MMult1)
+	PREV := MMult0
+else ifeq ($(NEW), MMult2)
+	PREV := MMult1
+else
+# stole from chatGPT, WATCH OUT SPACEs within expression!
+	NUM_NEW := $(shell echo $(NEW) | sed 's/.*_\([0-9]*\)/\1/')
+	GAP := 1
+	NUM_PREV := $(shell echo $$(($(NUM_NEW)-$(GAP))))
+	PREV := $(subst $(NUM_NEW),$(NUM_PREV),$(NEW))
+endif
+
+# print PREV
+$(info PREV: $(PREV))
+
 #
 # sample makefile
 #
@@ -38,6 +54,7 @@ run:
 	echo "version = '$(NEW)';" > output_$(NEW).m
 	./test_MMult.x >> output_$(NEW).m
 	cp output_$(OLD).m output_old.m
+	cp output_$(PREV).m output_prev.m
 	cp output_$(NEW).m output_new.m
 
 clean:
