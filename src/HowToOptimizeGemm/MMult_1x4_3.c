@@ -14,8 +14,8 @@ void MY_MMult( int m, int n, int k, double *a, int lda,
 {
   int i, j;
 
-  for ( i=0; i<m; i++ ){        /* Loop over the rows of C */
-    for ( j=0; j<n; j+=4 ){        /* Loop over the columns of C */
+  for ( j=0; j<n; j+=4 ){    /* Loop over the columns of C */
+    for (i = 0; i < m; i++) { /* Loop over the rows of C */
       /* Update C(i, j), C(i, j+1), C(i, j+2), C(i, j+3)*/
       AddDot1x4(k, &A(i, 0), lda, &B(0, j), ldb, &C(i, j), ldc);
     }

@@ -13,8 +13,8 @@ void MY_MMult( int m, int n, int k, double *a, int lda,
 {
   int i, j;
 
-  for ( i=0; i<m; i+=4 ){        /* Loop over the rows of C */
-    for ( j=0; j<n; j+=4 ){        /* Loop over the columns of C */
+  for ( j=0; j<n; j+=4 ){        /* Loop over the columns of C */
+    for ( i=0; i<m; i+=4 ){        /* Loop over the rows of C */
       /* Update a 4x4 block of matrix C
         C(i  , j), C(i  , j+1), C(i  , j+2), C(i  , j+3)
         C(i+1, j), C(i+1, j+1), C(i+1, j+2), C(i+1, j+3)
