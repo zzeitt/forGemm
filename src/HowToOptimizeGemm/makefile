@@ -60,6 +60,7 @@ run:
 	cp output_$(OLD).m output_old.m
 	cp output_$(PREV).m output_prev.m
 	cp output_$(NEW).m output_new.m
+	octave PlotAll.m
 
 clean:
 	rm -f *.o *~ core *.x

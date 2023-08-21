@@ -1,0 +1,16 @@
+# README
+Clone the git & create the env.
+#+begin_src
+git clone git@github.com:flame/how-to-optimize-gemm.git
+conda create -n octave
+conda install -c conda-forge octave
+#+end_src
+Run the pipeline as:
+#+begin_src
+conda activate octave
+octave
+
+(Change the $(NEW) variable in makefile or specify it in command line.)
+(The makefie will automatically "PlotAll" for you.)
+make run NEW=MMultx
+#+end_src
