@@ -39,7 +39,7 @@ void InnerMMult(int m, int n, int k, double *a, int lda,
   /* Do the inner block multiplication. */
   int i, j;
 
-for ( j=0; j<n; j+=4 ){        /* Loop over the columns of C */
+  for ( j=0; j<n; j+=4 ){        /* Loop over the columns of C */
     for ( i=0; i<m; i+=4 ){        /* Loop over the rows of C */
        /* Update a 4x4 block of matrix C
         C(i  , j), C(i  , j+1), C(i  , j+2), C(i  , j+3)
