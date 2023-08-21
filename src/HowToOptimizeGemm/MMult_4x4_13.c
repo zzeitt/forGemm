@@ -108,8 +108,9 @@ void AddDot4x4(int k, double* a, int lda, double* b, int ldb, double* c, int ldc
   b_p3_ptr = &B(0, 3);
 
   for (p = 0; p < k; p++) {
-    a_0p_vreg.v = _mm_load_pd((double *)&A(0, p)); // load 128-bits from mem_addr to m128d_dst
-    a_2p_vreg.v = _mm_load_pd((double *)&A(2, p));
+    a_0p_vreg.v = _mm_load_pd((double *)a); // load 128-bits from mem_addr to m128d_dst
+    a_2p_vreg.v = _mm_load_pd((double *)(a + 2));
+    a += 4;
 
     // b_p0_reg = *b_p0_ptr++;
     // b_p1_reg = *b_p1_ptr++;
