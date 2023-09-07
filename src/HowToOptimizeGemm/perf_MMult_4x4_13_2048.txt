@@ -1,0 +1,11 @@
+# started on Tue Sep  5 16:51:45 2023
+
+
+ Performance counter stats for './test_MMult.x':
+
+   592,567,877,793      cycles                                                      
+    49,952,610,899      L1-dcache-loads                                             
+   120,392,724,318      L1-dcache-load-misses     #  241.01% of all L1-dcache hits  
+
+     197.526625101 seconds time elapsed
+
